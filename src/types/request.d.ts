@@ -1,5 +1,3 @@
-import type { AxiosRequestConfig } from 'axios'
-
 declare interface IHttpRequest {
   method: 'GET' | 'POST' | 'PUT' | 'PATH'
   url: string
@@ -11,4 +9,3 @@ declare interface IHttpRequest {
   payload?: never
 }
 
-declare type IHttpRequestConfig = AxiosRequestConfig & IHttpRequest

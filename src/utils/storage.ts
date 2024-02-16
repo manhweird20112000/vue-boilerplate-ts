@@ -1,12 +1,11 @@
 import Cookies from 'js-cookie'
 
-import type { CookieAttributes } from 'js-cookie'
 
-export const setStorage = (key: string, value: string, options?: CookieAttributes): void => {
+export const setStorage = (key: string, value: string, options?: Cookies.CookieAttributes): void => {
   Cookies.set(key, value, options)
 }
 
-export const deleteStorage = (key: string, options?: CookieAttributes): void => {
+export const deleteStorage = (key: string, options?:  Cookies.CookieAttributes): void => {
   Cookies.remove(key, options)
 }
 

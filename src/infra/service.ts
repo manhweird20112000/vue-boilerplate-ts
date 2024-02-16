@@ -1,14 +1,13 @@
 import axios from 'axios'
 
-import type { IHttpRequestConfig } from '@/types/request'
 import type { AxiosInstance, AxiosResponse, AxiosError } from 'axios'
 
 const service: AxiosInstance = axios.create({
-  baseURL: process.env.API_URL
+  baseURL: import.meta.env.VITE_API_URL
 })
 
 service.interceptors.request.use(
-  (config: IHttpRequestConfig) => {
+  (config: any) => {
     const token: string = ''
     if (token !== '') {
       config.headers.Authorization = 'Bearer ' + token

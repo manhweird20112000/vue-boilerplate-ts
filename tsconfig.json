@@ -7,7 +7,7 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -20,12 +20,21 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
-    "typeRoots": ["src/types"]
+    "typeRoots": [
+      "src/types",
+      "node_modules/@types",
+      "node_modules/element-plus"
+    ],
+    "types": ["element-plus/global", "node"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "files": ["auto-imports.d.ts", "components.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

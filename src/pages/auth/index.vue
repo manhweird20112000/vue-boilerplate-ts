@@ -1,20 +1,40 @@
 <script setup lang="ts">
+import { ref, type Ref } from 'vue'
 
-import { useContainer } from '@/stores/container.ts'
-import { request } from '@/infra/request.ts'
+import { request } from '@/infra/request'
 
-const container = useContainer()
+const name : Ref<string> = ref('')
+
 onMounted(async () => {
   console.log(await request({
-    method: "GET",
-    url: 'https://jsonplaceholder.typicode.com/todos/1'}))
+    method: 'GET',
+    url: 'https://jsonplaceholder.typicode.com/todos/1' }))
+})
+
+const form = ref({
+  name: ''
+})
+
+const formRef = ref()
+
+const rules = computed(() => {
+  return {
+    name: [
+      { required: true, message: 'REQUIRED' }
+    ]
+  }
 })
 </script>
 
 <template>
-<div class="bg-red-900" @click="container.setLoading(!container.loading)">
-  Auth {{container.loading}}
-</div>
+  <div>
+    {{name}}
+    <el-form :model="form" ref="formRef" :rules="rules">
+      <field v-model:data="name" form-ref=""  name="name" label="NAME" />
+    </el-form>
+    <empty />
+
+  </div>
 </template>
 
 <style scoped>
