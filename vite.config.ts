@@ -4,8 +4,9 @@ import { defineConfig, loadEnv } from 'vite'
 import { resolve } from 'path'
 
 import AutoImport from 'unplugin-auto-import/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 // https://vitejs.dev/config/
 export default ({ mode }: any) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd(), '') }
@@ -27,7 +28,10 @@ export default ({ mode }: any) => {
       vue(),
       Components({
         resolvers: [
-          ElementPlusResolver()
+          AntDesignVueResolver({
+            importStyle: false,
+          })
+          // ElementPlusResolver()
         ],
         dirs: [
           './src/components'
@@ -41,7 +45,8 @@ export default ({ mode }: any) => {
             /\.md$/
           ],
           resolvers: [
-            ElementPlusResolver()
+            AntDesignVueResolver()
+            // ElementPlusResolver()
           ],
           imports: [
             'vue',
@@ -88,7 +93,7 @@ export default ({ mode }: any) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            vue: ['vue', 'vue-router', 'pinia', '@vueuse/core', 'vue-i18n']
+            vue: ['vue', 'vue-router', 'pinia', 'vue-i18n']
           }
         }
       },

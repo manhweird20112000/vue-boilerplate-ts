@@ -7,9 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElForm: typeof import('element-plus/es')['ElForm']
-    ElFormItem: typeof import('element-plus/es')['ElFormItem']
-    ElInput: typeof import('element-plus/es')['ElInput']
+    AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider']
+    AInput: typeof import('ant-design-vue/es')['Input']
     Empty: typeof import('./src/components/common/empty.vue')['default']
     Field: typeof import('./src/components/common/field.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

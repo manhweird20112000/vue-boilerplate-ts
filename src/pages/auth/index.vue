@@ -11,27 +11,15 @@ onMounted(async () => {
     url: 'https://jsonplaceholder.typicode.com/todos/1' }))
 })
 
-const form = ref({
-  name: ''
-})
-
-const formRef = ref()
-
-const rules = computed(() => {
-  return {
-    name: [
-      { required: true, message: 'REQUIRED' }
-    ]
-  }
-})
 </script>
 
 <template>
   <div>
     {{name}}
-    <el-form :model="form" ref="formRef" :rules="rules">
-      <field v-model:data="name" form-ref=""  name="name" label="NAME" />
-    </el-form>
+<!--    <el-form :model="form" ref="formRef" :rules="rules">-->
+<!--      <field v-model:data="name" form-ref=""  name="name" label="NAME" />-->
+<!--    </el-form>-->
+    <a-input type="text" />
     <empty />
 
   </div>
