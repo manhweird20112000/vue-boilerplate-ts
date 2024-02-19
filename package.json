@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ant-design-vue": "4.x",
     "axios": "^1.6.7",
     "element-plus": "^2.5.5",
     "js-cookie": "^3.0.5",
