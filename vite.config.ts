@@ -4,10 +4,10 @@ import { defineConfig, loadEnv } from 'vite'
 import { resolve } from 'path'
 
 import AutoImport from 'unplugin-auto-import/vite'
-// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
-import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
-// https://vitejs.dev/config/
+
+
 export default ({ mode }: any) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd(), '') }
   return defineConfig({
@@ -15,7 +15,7 @@ export default ({ mode }: any) => {
       host: true,
       hmr: { overlay: false },
       cors: true ,
-      port:  process.env.VITE_PORT,
+      port:  process.env['VITE_PORT'] || 3000,
       open: true,
       fs: {
         strict: true
@@ -29,13 +29,13 @@ export default ({ mode }: any) => {
       Components({
         resolvers: [
           AntDesignVueResolver({
-            importStyle: false,
+            importStyle: false
           })
-          // ElementPlusResolver()
         ],
         dirs: [
           './src/components'
-        ]
+        ],
+        dts: './src/types/components.d.ts'
       }),
       AutoImport(
         {
@@ -46,7 +46,6 @@ export default ({ mode }: any) => {
           ],
           resolvers: [
             AntDesignVueResolver()
-            // ElementPlusResolver()
           ],
           imports: [
             'vue',
@@ -58,10 +57,7 @@ export default ({ mode }: any) => {
             filepath: './.eslintrc-auto-import.json',
             globalsPropValue: true
           },
-          dirs: [
-            './src/composables'
-          ],
-          dts: true,
+          dts: './src/types/auto-imports.d.ts',
           vueTemplate: true
         }
       )
@@ -79,11 +75,11 @@ export default ({ mode }: any) => {
         },
         {
           find: 'vue-i18n',
-          replacement: 'vue-i18n/dist/vue-i18n.cjs.js' // Resolve the i18n warning issue
+          replacement: 'vue-i18n/dist/vue-i18n.cjs.js'
         },
         {
           find: 'vue',
-          replacement: 'vue/dist/vue.esm-bundler.js' // compile template
+          replacement: 'vue/dist/vue.esm-bundler.js'
         }
       ],
       dedupe: ['vue'],

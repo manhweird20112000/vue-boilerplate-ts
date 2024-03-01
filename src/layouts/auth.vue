@@ -5,7 +5,7 @@
 <template>
 <div class="auth">
   AUTH
-  <slot />
+  <router-view />
 </div>
 </template>
 

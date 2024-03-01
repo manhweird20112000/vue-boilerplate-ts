@@ -1,18 +1,17 @@
 <script setup lang="ts">
-
 import { AUTH_KEY } from '@/constants'
-import { getStorage } from '@/utils/storage'
-import { ThemeConfig } from 'ant-design-vue/es/config-provider/context'
+import { theme } from '@/infra/ui/theme'
+import { getStorage, setStorage } from '@/utils/storage'
+
+const route = useRoute()
 
 const layout = ref()
 
-const theme : ThemeConfig = reactive({
-  token: {
-    colorPrimary: '#00b96b'
-  }
-})
+
 
 watchEffect(async () => {
+  console.log(route)
+  setStorage(AUTH_KEY, '1')
   const user = getStorage(AUTH_KEY)
   layout.value = user ?  markRaw((await import('@/layouts/default.vue')).default) :  markRaw((await import('@/layouts/auth.vue')).default)
 })

@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { ref, type Ref } from 'vue'
 
-import { request } from '@/infra/request'
 
-const name : Ref<string> = ref('')
+import { index } from '@/infra/api'
 
 onMounted(async () => {
-  console.log(await request({
+  console.log(await index({
     method: 'GET',
     url: 'https://jsonplaceholder.typicode.com/todos/1' }))
 })
@@ -15,13 +13,6 @@ onMounted(async () => {
 
 <template>
   <div>
-    {{name}}
-<!--    <el-form :model="form" ref="formRef" :rules="rules">-->
-<!--      <field v-model:data="name" form-ref=""  name="name" label="NAME" />-->
-<!--    </el-form>-->
-    <a-input type="text" />
-    <empty />
-
   </div>
 </template>
 
