@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
+    "@vue/compiler-sfc": "^3.4.21",
     "ant-design-vue": "4.x",
     "axios": "^1.6.7",
     "js-cookie": "^3.0.5",

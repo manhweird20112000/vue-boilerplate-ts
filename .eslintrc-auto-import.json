@@ -85,6 +85,7 @@
     "VNode": true,
     "WritableComputedRef": true,
     "toValue": true,
-    "useValidateField": true
+    "useValidateField": true,
+    "vueSfcD": true
   }
 }

@@ -28,11 +28,9 @@
       "@/*": ["src/*"]
     },
     "typeRoots": [
-      "src/types",
-      "node_modules/@types",
-      "node_modules/element-plus"
+      "src/types"
     ],
-    "types": ["node"]
+    "types": ["vite/client"]
   },
   "files": ["src/types/auto-imports.d.ts", "src/types/components.d.ts"],
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],

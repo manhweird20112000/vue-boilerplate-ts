@@ -38,6 +38,7 @@
         }
     },
     "rules": {
+        "no-undef": 0,
         "tailwindcss/no-custom-classname": "off",
         "indent": [
             "error",

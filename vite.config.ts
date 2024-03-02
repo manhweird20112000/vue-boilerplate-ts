@@ -25,7 +25,9 @@ export default ({ mode }: any) => {
       devSourcemap: true
     },
     plugins: [
-      vue(),
+      vue({
+        isProduction: true
+      }),
       Components({
         resolvers: [
           AntDesignVueResolver({
@@ -47,6 +49,7 @@ export default ({ mode }: any) => {
           resolvers: [
             AntDesignVueResolver()
           ],
+          dirs: ['./src/types'],
           imports: [
             'vue',
             'vue-router',
