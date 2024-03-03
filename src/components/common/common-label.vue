@@ -1,8 +1,8 @@
 <script setup lang="ts">
 interface Props{
-  label: string,
-  charRequired: string,
-  showLabelRequired: boolean
+  label?: string,
+  charRequired?: string,
+  showLabelRequired?: boolean
 }
 withDefaults(defineProps<Props>(), {
   label: '',

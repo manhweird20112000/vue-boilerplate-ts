@@ -28,11 +28,9 @@ onMounted(async () => {
 
 <template>
 <div>
-  {{form}}<common-label :label="'ạdhbj'" />
+  {{form}}
   <a-form ref="formRef" :model="form" @finish="() => {console.log('finish')}" @finish-failed="() => console.log('finish-failed')" :rules="rules">
-    <a-form-item name="name">
-      <a-input size="large"  v-model:value="form.name" @focus="clearValidateField('name', formRef)"/>
-    </a-form-item>
+   <common-field v-model:data="form.name" name="name" type="textarea"  />
   </a-form>
 </div>
 </template>
