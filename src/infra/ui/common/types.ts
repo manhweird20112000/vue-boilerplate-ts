@@ -6,7 +6,7 @@ export interface ICommonField{
     charRequired?: string
     data?: any,
     maxlength?: number
-    type?: 'text' | 'textarea' | 'number' | 'password',
+    type?: 'number' | 'button' | 'time' | 'reset' | 'submit' | 'image' | 'text' | 'search' | 'hidden' | 'color' | 'checkbox' | 'radio' | 'range' | 'date' | 'url' | 'email' | 'week' | 'month' | 'datetime-local' | 'file' | 'password' | 'tel' | 'textarea'
     name?: string,
     formRef?: FormInstance | undefined,
     placeholder?: string,
@@ -14,4 +14,10 @@ export interface ICommonField{
     rows?: number
     disabled?: boolean,
     allowClear?: boolean
+}
+
+export interface IPagination{
+  page: number,
+  per_page: number,
+  total: number
 }

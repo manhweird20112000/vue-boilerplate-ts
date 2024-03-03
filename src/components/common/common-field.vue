@@ -9,7 +9,6 @@ const props = withDefaults(defineProps<ICommonField>(), {
   rows: 4
 })
 
-console.log(props)
 
 const emits = defineEmits(['update:data', 'change'])
 
@@ -34,7 +33,6 @@ watch(
       :maxlength="maxlength"
       :rows="rows"
       :placeholder="placeholder"
-      :type="type"
       :show-count="showCount"
       :disabled="disabled"
       :allow-clear="allowClear"
