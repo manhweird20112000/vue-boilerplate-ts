@@ -35,7 +35,7 @@ const paginate = ref<IPagination>({
   <div class="tw-fixed tw-bottom-0 tw-right-0 tw-w-[calc(100vw_-_var(--width-sidebar))] tw-border-t tw-px-4 tw-py-3">
     <a-row>
       <a-col :span="18">
-        <a-pagination v-model:current="paginate.page"  size="large" show-size-changer show-quick-jumper :total="paginate.total" />
+        <a-pagination v-model:current="paginate.page" show-size-changer show-quick-jumper :total="paginate.total" />
       </a-col>
       <a-col :span="6">
         <slot name="action-bottom" />
